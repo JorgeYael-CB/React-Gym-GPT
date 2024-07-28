@@ -4,6 +4,7 @@ import { RouterInterface } from "../../interface";
 import { Payments } from "../pages/payments";
 import { Support } from "../pages/support";
 import { Faq } from "../pages/faq";
+import { NavBar } from "../components/NavBar";
 
 
 
@@ -34,7 +35,7 @@ export const routes:RouterInterface[] = [
 export const Router = createBrowserRouter([
   {
     path: '/',
-    element: <Home/>,
+    element: <NavBar routes={ routes }/>,
     children: routes.map( r => (
       {
         path: r.route,

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { RouterInterface } from "../../interface";
 
 
@@ -14,7 +14,9 @@ export const NavBar = ( {routes}:Props ) => {
           {
             routes.map( r => (
               <NavLink
-                className={ (active) => `font-semibold rounded-sm transition-colors px-3 py-1 text-base ${ active.isActive ? 'bg-white text-black' : 'text-white' }` } to={r.route}>{r.title}
+                key={r.route}
+                className={(active) => `font-semibold rounded-sm px-3 py-1 text-base transition-colors ${ active.isActive ? 'bg-white text-black' : 'text-white hover:bg-gray-400 hover:text-black' }`}
+                to={r.route}>{r.title}
               </NavLink>
             ))
           }
@@ -26,7 +28,9 @@ export const NavBar = ( {routes}:Props ) => {
           <NavLink
             className={ (active) => `font-semibold rounded-sm transition-colors px-3 py-1 text-base ${ active.isActive ? 'bg-white text-black' : 'text-white' }` } to='/auth/register'>Register</NavLink>
         </nav>
+
       </div>
+      <Outlet/>
     </>
   )
 }

@@ -1,11 +1,10 @@
-import { NavBar } from "../../components/NavBar"
-import { routes } from "../../router"
+import { Hero } from "../../components";
 
 
 export const Home = () => {
   return (
     <>
-      <NavBar routes={ routes }/>
+      <Hero/>
     </>
   )
 }
